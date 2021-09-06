@@ -96,10 +96,6 @@ ssh_xterm()
     ssh -Y $1
 }
 
-scarlett()
-{
-    echo "USADXBFLJFMCSPSV"
-}
 
 eval $(thefuck --alias)
 
