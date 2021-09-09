@@ -1,3 +1,7 @@
+#sane colours for directory listings
+export LS_COLORS="ow=01;36;40"
+export CLICOLOR=1
+
 man() 
 {
     env \
@@ -34,9 +38,6 @@ alias kubectl='minikube kubectl --'
 
 alias mv='mv -i' # Prevents accidentally clobbering files.
 
-alias free='top -o vsize'
-alias ltop='top -F -R -o cpu'
-
 #handy shortcuts
 alias h='history'
 alias path='echo -e ${PATH//:/\\n}'
@@ -45,19 +46,22 @@ alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
 alias du='du -kh'       # Makes a more readable output.
 alias df='df -kh'
 
-#listing files
-alias ll='ls -lh'
-alias la='ls -Alh'
-alias lr='ls -ltrh'
-alias ls='ls -ltrGFh'
+ #force directory listings to have colours
+ ls='ls --color=auto'
+
+ alias la='ls -Alh'
+ alias lr='ls -ltrha'
+ alias ll='ls -FGlAhp'
 
 #bash editing
 alias eb="vi ~/.profile"
 alias sb=". ~/.profile"
 
-#force MacVIM usage
-#alias vi="mvim -v"
-alias evim='vi ~/.vimrc' 
+ #force MacVIM usage (macOS only)
+ #alias vi="mvim -v"
+
+ #uncomment to add 'which' emulation on macOS
+ #alias which='type -all'
 
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
