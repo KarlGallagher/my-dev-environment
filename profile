@@ -1,3 +1,7 @@
+
+#add /sbin to path (debian)
+export PATH=$PATH:/sbin
+
 #sane colours for directory listings
 export LS_COLORS="ow=01;36;40"
 export CLICOLOR=1

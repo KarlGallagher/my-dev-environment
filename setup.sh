@@ -31,9 +31,9 @@ then
     vagrant box add --provider virtualbox --no-tty generic/ubuntu2004
     vagrant box add --provider virtualbox --no-tty cdaf/WindowsServer
 else
-    distro=$(awk -F'=' '/^ID=/ {print tolower($2)}' /etc/*-release)
-    
-    if [ ${distro} == "ubuntu" ]
+    distro=$(awk -F'=' '/^ID=/ {print tolower($2)}' /etc/os-release)
+    echo DISTRO=${distro}
+    if [[ ${distro} == +(ubuntu|debian) ]]
     then
         apt -y update
         apt -y upgrade
