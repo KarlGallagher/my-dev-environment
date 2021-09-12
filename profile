@@ -61,7 +61,7 @@ alias df='df -kh'
 alias eb="vi ~/.profile"
 alias sb=". ~/.profile"
 
- #force MacVIM usage (macOS only)
+ #force MacVIM usage (macOS  only)
  #alias vi="mvim -v"
 
  #uncomment to add 'which' emulation on macOS
