@@ -21,7 +21,7 @@ This repository stores package lists and install scripts used to configure a min
 
 >`cd my-dev-environment/`
 
->`sudo bash setup.sh`
+>`sudo bash setup.sh $(whoami)`
 
 **Do not use sudo on macOS!**
 
