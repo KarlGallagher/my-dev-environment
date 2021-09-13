@@ -1,1 +1,1 @@
-neofetch cowsay thefuck meld htop qcachegrind helm minkube fortune tree curl parallel pidcat macvim gnuplot cscope python@3.8 packer docker docker-compose
+neofetch cowsay thefuck meld htop qcachegrind helm minkube fortune tree curl parallel pidcat macvim gnuplot cscope python@3.8 packer docker docker-compose git

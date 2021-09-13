@@ -27,7 +27,7 @@ then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"  
     brew tap hashicorp/tap
     xargs brew install < brew_packages.txt
-    xargs brew -y install < brew_casks.txt
+    xargs brew install < brew_casks.txt
     vagrant box add --provider virtualbox --no-tty generic/ubuntu2004
     vagrant box add --provider virtualbox --no-tty cdaf/WindowsServer
 else
