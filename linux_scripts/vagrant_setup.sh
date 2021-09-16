@@ -32,4 +32,4 @@ apt -y install ./vagrant_2.2.16_x86_64.deb
 vagrant plugin install yaml
 vagrant plugin install vagrant-libvirt
 
-vagrant box add --provider libvirt --no-tty generic/ubuntu2004
+vagrant box add --provider libvirt --no-tty generic/debian11

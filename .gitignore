@@ -1,2 +1,4 @@
 get-docker.sh
 *.deb
+*.rb
+.vagrant/

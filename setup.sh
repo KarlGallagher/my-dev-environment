@@ -39,13 +39,12 @@ else
         apt -y upgrade
         xargs apt-get -y install < apt_packages.txt
 
-        wget https://packages.microsoft.com/config/ubuntu/21.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-        dpkg -i packages-microsoft-prod.deb
-        rm packages-microsoft-prod.deb
+        bash -c linux_scripts/install_docker.sh
+        bash -c linux_scripts/install_helm.sh
+        bash -c linux_scripts/install_minikube.sh
+        bash -c linux_scripts/install_vscode.sh
+        bash -c linux_scripts/install_dotnet.sh
 
-        apt-get install -y apt-transport-https &&  apt-get update && apt-get install -y dotnet-sdk-5.0
-        
-        apt-get install -y apt-transport-https &&  apt-get update &&  apt-get install -y aspnetcore-runtime-5.0
     else
         echo "Unsupported distribution, try Ubuntu"
         exit -1
