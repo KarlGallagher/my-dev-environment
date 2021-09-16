@@ -37,6 +37,8 @@ If you require or need to run the development environment on a VM, a vagrant set
 
 `vagrant box add --provider virtualbox --no-tty generic/debian11`
 
+`vagrant plugin install yaml`
+
 `vagrant up`
 
 >The base box also supports 'hyperv'(Windows) and 'libvirt'(Linux/KVM) providers. 
