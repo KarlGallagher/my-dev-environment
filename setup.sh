@@ -39,11 +39,11 @@ else
         apt -y upgrade
         xargs apt-get -y install < apt_packages.txt
 
-        bash -c linux_scripts/install_docker.sh
-        bash -c linux_scripts/install_helm.sh
-        bash -c linux_scripts/install_minikube.sh
-        bash -c linux_scripts/install_vscode.sh
-        bash -c linux_scripts/install_dotnet.sh
+        bash linux_scripts/install_docker.sh $1
+        bash linux_scripts/install_helm.sh
+        bash linux_scripts/install_minikube.sh
+        bash linux_scripts/install_vscode.sh
+        bash linux_scripts/install_dotnet.sh
 
     else
         echo "Unsupported distribution, try Ubuntu"
