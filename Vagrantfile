@@ -60,6 +60,13 @@ Vagrant.configure("2") do |config|
   # Example for VirtualBox:
   #
   config.vm.provider "virtualbox" do |machine, override|
+    #Allow copy/paste between host<-->guest 
+    vb.customize ["modifyvm", :id, "--clipboard-mode", "bidirectional"]
+    vb.customize ["modifyvm", :id, "--draganddrop", "bidirectional"]
+    
+    #USB mount/filter
+    vb.customize ["modifyvm", :id, "--usb", "on"]
+    vb.customize ["modifyvm", :id, "--usbehci", "on"]
     # Display the VirtualBox GUI when booting the machine?
     machine.gui = false
     # Customize the amount of memory on the VM:
