@@ -20,15 +20,17 @@
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 kernel=`uname`
+home="home"
 
 if [ ${kernel} == "Darwin" ]
 then
+    home="Users"
     #install homebrew
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"  
     brew tap hashicorp/tap
     xargs brew install < brew_packages.txt
-    xargs brew install < brew_casks.txt
-    vagrant box add --provider virtualbox --no-tty generic/ubuntu2004
+    xargs brew install --cask < brew_casks.txt
+    vagrant box add --provider virtualbox --no-tty generic/debian11
     vagrant box add --provider virtualbox --no-tty cdaf/WindowsServer
 else
     distro=$(awk -F'=' '/^ID=/ {print tolower($2)}' /etc/os-release)
@@ -46,12 +48,12 @@ else
         bash linux_scripts/install_dotnet.sh
 
     else
-        echo "Unsupported distribution, try Ubuntu"
+        echo "Unsupported distribution, try Ubuntu or Debian"
         exit -1
     fi
 fi
 
 echo "Setting bash and vim profiles..."
-cat profile >> /home/$1/.profile
-cp vimrc /home/$1/.vimrc
+cat profile >> /${home}/$1/.profile
+cp vimrc /${home}/$1/.vimrc
 

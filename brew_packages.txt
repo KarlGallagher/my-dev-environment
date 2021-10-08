@@ -1,1 +1,1 @@
-neofetch cowsay thefuck meld htop qcachegrind helm minikube fortune tree curl parallel pidcat macvim gnuplot cscope python@3.8 packer hyperkit docker git xclip
+neofetch cowsay thefuck meld htop qcachegrind helm minikube fortune tree curl parallel pidcat macvim gnuplot cscope python@3.8 packer hyperkit git xclip
