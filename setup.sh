@@ -35,7 +35,7 @@ then
 else
     distro=$(awk -F'=' '/^ID=/ {print tolower($2)}' /etc/os-release)
     echo DISTRO=${distro}
-    if [[ ${distro} == +(ubuntu|debian) ]]
+    if [ ${distro} = "ubuntu" ] || [ ${distro} = "debian" ]
     then
         apt -y update
         apt -y upgrade
