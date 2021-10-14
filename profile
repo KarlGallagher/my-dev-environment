@@ -68,7 +68,7 @@ alias sb=". ~/.profile"
  #alias which='type -all'
 
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
-alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias myip="dig @resolver4.opendns.com myip.opendns.com +short"
 
 #reverse file read
 alias tac='tail -r'
