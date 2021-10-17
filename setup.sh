@@ -28,10 +28,19 @@ then
     #install homebrew
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"  
     brew tap hashicorp/tap
+    brew tap homebrew/cask-fonts
     xargs brew install < brew_packages.txt
     xargs brew install --cask < brew_casks.txt
+
+    #oh-my-zsh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    omz update
+
+    #vagrant boxes
     vagrant box add --provider virtualbox --no-tty generic/debian11
     vagrant box add --provider virtualbox --no-tty cdaf/WindowsServer
+
+    cat zshrc >> /${home}/$1/.zshrc
 else
     distro=$(awk -F'=' '/^ID=/ {print tolower($2)}' /etc/os-release)
     echo DISTRO=${distro}
@@ -47,13 +56,14 @@ else
         bash linux_scripts/install_vscode.sh
         bash linux_scripts/install_dotnet.sh
 
+        cat profile >> /${home}/$1/.profile
+
     else
         echo "Unsupported distribution, try Ubuntu or Debian"
         exit -1
     fi
 fi
 
-echo "Setting bash and vim profiles..."
-cat profile >> /${home}/$1/.profile
+echo "Setting vim profile..."
 cp vimrc /${home}/$1/.vimrc
 
