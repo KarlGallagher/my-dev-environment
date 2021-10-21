@@ -354,3 +354,5 @@ function! VisualSelection(direction, extra_filter) range
 endfunction
 
 set clipboard=unnamedplus
+set macligatures
+set guifont=Fira\ Code:h12
