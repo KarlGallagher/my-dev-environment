@@ -25,8 +25,6 @@ cowsay $(fortune)
  #force MacVIM usage
  alias vi="mvim -v"
 
- alias which='type -all'
-
  alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
  alias myip="dig @resolver4.opendns.com myip.opendns.com +short"
 

@@ -64,9 +64,6 @@ alias sb=". ~/.profile"
  #force MacVIM usage (macOS  only)
  #alias vi="mvim -v"
 
- #uncomment to add 'which' emulation on macOS
- #alias which='type -all'
-
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias myip="dig @resolver4.opendns.com myip.opendns.com +short"
 
