@@ -45,14 +45,10 @@ If you require or need to run the development environment on a VM, a vagrant set
 You may need to install/enable the correct provider beforehand.
 
   ---
-  
-## Post setup
-macOS users may wish to uncomment the following line from the installed bash profile (`vi ~/.profile`)
->#alias vi="mvim -v"
 
 ### IDE setup
 By default, vim/macvim text editor is setup with basic syntax highlighting support.
 
-And also: [Visual Studio Code](https://code.visualstudio.com/download) IDE
+And also: [Visual Studio Code](https://code.visualstudio.com/download)
 
 >You are free to install any other IDE of your choosing.
