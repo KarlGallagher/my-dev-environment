@@ -354,5 +354,6 @@ function! VisualSelection(direction, extra_filter) range
 endfunction
 
 set clipboard=unnamedplus
-set macligatures
+"" Uncomment of ligatures for macOS
+""set macligatures
 set guifont=Fira\ Code:h12
