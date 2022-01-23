@@ -9,8 +9,8 @@ This repository stores package lists and install scripts used to configure a min
 - Debian 11 (Bullseye)
 
 ## Supported development tools
-- python (3.8)
-- .Net Core (5)
+- python (3.x)
+- .Net Core (6)
 - Vagrant
 - Docker
 - Minikube
