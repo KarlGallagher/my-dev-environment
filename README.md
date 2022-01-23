@@ -33,7 +33,7 @@ This repository stores package lists and install scripts used to configure a min
 >Note: Linux platform setup will NOT install/configure vagrant by default. Run `sudo bash linux_scripts/vagrant_setup` if required.
 
 ### Vagrant option
-If you require or need to run the development environment on a VM, a vagrant setup based on [Debian 11](https://www.debian.org/releases/stable/https://www.debian.org/releases/stable/) (Bullseye) is also provided.
+If you require or need to run the development environment on a VM, a vagrant setup based on [Debian 11](https://www.debian.org/releases/stable/) (Bullseye) is also provided.
 
 `vagrant box add --provider virtualbox --no-tty generic/debian11`
 
