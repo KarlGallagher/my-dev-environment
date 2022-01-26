@@ -61,12 +61,12 @@ alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
 alias du='du -kh'       # Makes a more readable output.
 alias df='df -kh'
 
- #force directory listings to have colours
- ls='ls --color=auto'
+#force directory listings to have colours
+ls='ls --color=auto'
 
- alias la='ls -Alh'
- alias lr='ls -ltrha'
- alias ll='ls -FGlAhp'
+alias la='ls -Alh'
+alias lr='ls -ltrha'
+alias ll='ls -FGlAhp'
 
 #bash editing
 alias eb="vi ~/.profile"
