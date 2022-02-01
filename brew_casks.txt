@@ -1,1 +1,1 @@
-meld wireshark vagrant iterm2 dotnet-sdk visual-studio-code ebfont-fira-code
+meld wireshark vagrant iterm2 dotnet-sdk visual-studio-code font-fira-code font-hack-nerd-font font-fira-code-nerd-font
