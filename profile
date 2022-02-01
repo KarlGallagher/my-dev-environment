@@ -1,4 +1,3 @@
-
 #uncomment below to add manual docker daemon socket setup for WSL installs
 #DOCKER_DISTRO="Ubuntu"
 #DOCKER_DIR=/mnt/wsl/shared-docker
@@ -100,16 +99,6 @@ addlibpath()
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$1
 }
 
-check_min_ios_sdk()
-{
-	otool -l  $1 |  fgrep --after-context=3 LC_VERSION_MIN_IPHONEOS | grep $2
-}
-
-check_ios_archs()
-{
-    otool -hv -arch all $1
-}
-
 ssh_xterm()
 {
     export DISPLAY=:0
@@ -122,3 +111,5 @@ eval $(thefuck --alias)
 neofetch
 
 cowsay $(fortune)
+
+eval "$(starship init bash)"

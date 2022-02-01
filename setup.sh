@@ -55,6 +55,7 @@ else
         bash linux_scripts/install_minikube.sh
         bash linux_scripts/install_vscode.sh
         bash linux_scripts/install_dotnet.sh
+        bash linux_scripts/install_starship.sh
 
         cat profile >> /${home}/$1/.profile
 

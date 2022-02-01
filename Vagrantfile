@@ -68,7 +68,7 @@ Vagrant.configure("2") do |config|
     machine.customize ["modifyvm", :id, "--usb", "on"]
     machine.customize ["modifyvm", :id, "--usbehci", "on"]
     # Display the VirtualBox GUI when booting the machine?
-    machine.gui = false
+    machine.gui = true
     # Customize the amount of memory on the VM:
     machine.memory = settings["ram"]
     # Customised number of cpu cores assigned to the VM:
@@ -111,7 +111,7 @@ Vagrant.configure("2") do |config|
   # Copy setup and env files to guest
   config.vm.provision :file, source: "vimrc", destination: "/home/vagrant/.vimrc"
   config.vm.provision :file, source: "apt_packages.txt", destination: "/tmp/"
-  config.vm.provision :file, source: "profile", destination: "/tmp/" 
+  config.vm.provision :file, source: "profile", destination: "/tmp/"
 
   # Append custom bash profile settings
   config.vm.provision :shell, inline: "cat /tmp/profile >> /home/vagrant/.profile"
@@ -130,4 +130,5 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, path: "linux_scripts/install_vscode.sh"
   config.vm.provision :shell, path: "linux_scripts/install_minikube.sh"
   config.vm.provision :shell, path: "linux_scripts/install_helm.sh"
+  config.vm.provision :shell, path: "linux_scripts/install_starship.sh"
 end
