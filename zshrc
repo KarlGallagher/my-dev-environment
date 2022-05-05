@@ -43,3 +43,16 @@ cowsay $(fortune)
     LESS_TERMCAP_us=$(printf "\e[1;32m") \
     man "$@"
  }
+
+colima_start()
+{
+   colima start --cpu 8 --memory 10 --disk 15 --mount /Users/kgallagh/:rw
+   export DOCKER_CONTEXT=colima
+   export DOCKER_HOST="$(docker context inspect colima -f '{{ .Endpoints.docker.Host }}')"
+}
+
+colima_context()
+{
+   export DOCKER_CONTEXT=colima
+   export DOCKER_HOST="$(docker context inspect colima -f '{{ .Endpoints.docker.Host }}')"
+}

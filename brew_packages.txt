@@ -1,1 +1,1 @@
-neofetch cowsay thefuck meld htop qcachegrind helm minikube fortune tree curl parallel pidcat macvim gnuplot cscope python@3.9 packer hyperkit docker docker-compose docker-credential-helper git xclip z starship gnu-which gnupg make
+neofetch cowsay thefuck meld htop qcachegrind helm minikube fortune tree curl parallel pidcat macvim gnuplot cscope python@3.9 packer hyperkit docker docker-compose docker-credential-helper git xclip z starship gnu-which gnupg make k6

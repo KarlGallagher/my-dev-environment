@@ -2,7 +2,7 @@ vm_machine_name: "my-dev-vm"
 vm_name: "My Development Environment"
 vm_host_name: "my-dev-vm"
 
-cpu_num: 4
+cpu_num: 6
 
 # in Mb
-ram: 8192
+ram: 16384

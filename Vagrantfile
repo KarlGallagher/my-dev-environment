@@ -120,6 +120,15 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
      apt-get -y update
      apt-get -y upgrade
+     # Install Microsoft pre-requisite packages.
+     sudo apt-get install -y wget apt-transport-https software-properties-common
+     # Download the Microsoft repository GPG keys
+     wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
+     # Register the Microsoft repository GPG keys
+     sudo dpkg -i packages-microsoft-prod.deb
+     # Update the list of packages after we added packages.microsoft.com
+     sudo apt-get -y update
+
      echo "Installing Packages..."
      xargs apt-get -y install < /tmp/apt_packages.txt
   SHELL
@@ -131,4 +140,5 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, path: "linux_scripts/install_minikube.sh"
   config.vm.provision :shell, path: "linux_scripts/install_helm.sh"
   config.vm.provision :shell, path: "linux_scripts/install_starship.sh"
+  config.vm.provision :shell, path: "linux_scripts/install_k6.sh"
 end
