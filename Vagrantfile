@@ -49,7 +49,7 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder ".", "/vagrant_data", disabled: false
+  config.vm.synced_folder ".", "/vagrant_data", disabled: true
 
   #Basic VM settings (Global)
   config.vm.hostname = settings['vm_host_name']
@@ -84,11 +84,11 @@ Vagrant.configure("2") do |config|
     # Enable extensions
     machine.enable_virtualization_extensions = true
     # Customize the amount of memory on the VM:
-    machine.memory = settings["ram"]
+    machine.maxmemory = settings["ram"]
     # Customised number of cpu cores assigned to the VM:
     machine.cpus = settings["cpu_num"]
     # Name the VM instance:
-    machine.name = settings['vm_name']
+    machine.vmname = settings['vm_name']
   end
   # Example for libvirt(KVM):
   #
@@ -114,23 +114,17 @@ Vagrant.configure("2") do |config|
   config.vm.provision :file, source: "profile", destination: "/tmp/"
 
   # Append custom bash profile settings
-  config.vm.provision :shell, inline: "cat /tmp/profile >> /home/vagrant/.profile"
+  config.vm.provision "shell", inline: <<-SHELL
+    cat /tmp/profile >> /home/vagrant/.profile
+  SHELL
 
   # Install required packages (as defined in package list)
   config.vm.provision "shell", inline: <<-SHELL
-     apt-get -y update
-     apt-get -y upgrade
-     # Install Microsoft pre-requisite packages.
-     sudo apt-get install -y wget apt-transport-https software-properties-common
-     # Download the Microsoft repository GPG keys
-     wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
-     # Register the Microsoft repository GPG keys
-     sudo dpkg -i packages-microsoft-prod.deb
-     # Update the list of packages after we added packages.microsoft.com
-     sudo apt-get -y update
+     apt -y update
+     apt -y upgrade
 
      echo "Installing Packages..."
-     xargs apt-get -y install < /tmp/apt_packages.txt
+     xargs apt -y install < /tmp/apt_packages.txt
   SHELL
 
   # Install tools
@@ -141,4 +135,5 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, path: "linux_scripts/install_helm.sh"
   config.vm.provision :shell, path: "linux_scripts/install_starship.sh"
   config.vm.provision :shell, path: "linux_scripts/install_k6.sh"
+  config.vm.provision :shell, path: "linux_scripts/install_powershell.sh"
 end

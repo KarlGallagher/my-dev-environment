@@ -49,16 +49,7 @@ else
         apt -y update
         apt -y upgrade
 
-        # Install Microsoft pre-requisite packages.
-        sudo apt-get install -y wget apt-transport-https software-properties-common
-        # Download the Microsoft repository GPG keys
-        wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
-        # Register the Microsoft repository GPG keys
-        sudo dpkg -i packages-microsoft-prod.deb
-        # Update the list of packages after we added packages.microsoft.com
-        sudo apt-get update
-
-        xargs apt-get -y install < apt_packages.txt
+        xargs apt -y install < apt_packages.txt
 
         bash linux_scripts/install_docker.sh $1
         bash linux_scripts/install_helm.sh
@@ -67,6 +58,7 @@ else
         bash linux_scripts/install_dotnet.sh
         bash linux_scripts/install_starship.sh
         bash linux_scripts/install_k6.sh
+        bash linux_scripts/install_powershell.sh 
 
         cat profile >> /${home}/$1/.profile
 
