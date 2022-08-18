@@ -36,13 +36,20 @@ usermod -aG docker $1
 su -s ${1}
 
 #Expose docker externally on port 2375
-cp /lib/systemd/system/docker.service /etc/systemd/system/
-sed -i '/ExecStart/s/$/ -H tcp:\/\/0.0.0.0:2375/' /etc/systemd/system/docker.service
-systemctl daemon-reload
+if grep -qi WSL /proc/sys/kernel/osrelease; then
+    #WSL Ubuntu variant does not use systemd in its init system
+	echo "{ \"hosts\": [\"unix:///var/run/docker.sock\", \"tcp://0.0.0.0:2375\"] }" >> /etc/docker/daemon.json
+	#fix for daemon not starting on WSL
+	update-alternatives --set iptables /usr/sbin/iptables-legacy
+    update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+else
+    cp /lib/systemd/system/docker.service /etc/systemd/system/
+    sed -i '/ExecStart/s/$/ -H tcp:\/\/0.0.0.0:2375/' /etc/systemd/system/docker.service
+    systemctl daemon-reload
+fi
 
 #running docker as a service
-service docker start
-
+service docker restart
 #have docker startup after reboot
 update-rc.d docker enable
 
