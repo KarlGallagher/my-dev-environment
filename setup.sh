@@ -56,7 +56,6 @@ else
         bash linux_scripts/install_helm.sh
         bash linux_scripts/install_minikube.sh
         bash linux_scripts/install_vscode.sh
-        bash linux_scripts/install_dotnet.sh
         bash linux_scripts/install_starship.sh
         bash linux_scripts/install_k6.sh
         bash linux_scripts/install_powershell.sh 

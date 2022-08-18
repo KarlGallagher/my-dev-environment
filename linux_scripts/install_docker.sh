@@ -33,7 +33,6 @@ apt -y install docker-ce docker-ce-cli containerd.io
 #Add user to docker group
 groupadd docker
 usermod -aG docker $1
-su -s ${1}
 
 #Expose docker externally on port 2375
 if grep -qi WSL /proc/sys/kernel/osrelease; then
