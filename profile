@@ -1,3 +1,6 @@
+#Uncomment to enable automatic startup of docker daemon service on login
+#wsl.exe -u root -e sh -c "service docker status || service docker start"
+
 #add /sbin to path (debian)
 export PATH=$PATH:/sbin
 
