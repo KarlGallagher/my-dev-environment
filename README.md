@@ -4,9 +4,7 @@ This repository stores package lists and install scripts used to configure a min
 
 ## Supported OS platforms
 - macOS (10.14+)
-- Ubuntu 20.04 LTS
-- Debian 10 (Buster)
-- Debian 11 (Bullseye)
+- Ubuntu 22.04 LTS
 
 ## Supported development tools
 - python (3.x)
@@ -20,7 +18,7 @@ This repository stores package lists and install scripts used to configure a min
 ---
 ## Running setup
 
-### Local Install (MacOS or Debian/Unbuntu)
+### Local Install (MacOS or Unbuntu)
 
 >`git clone https://github.com/KarlGallagher/my-dev-environment`
 
@@ -33,9 +31,9 @@ This repository stores package lists and install scripts used to configure a min
 >Note: Linux platform setup will NOT install/configure vagrant by default. Run `sudo bash linux_scripts/vagrant_setup` if required.
 
 ### Vagrant option
-If you require or need to run the development environment on a VM, a vagrant setup based on [Debian 11](https://www.debian.org/releases/stable/) (Bullseye) is also provided.
+If you require or need to run the development environment on a VM, a vagrant setup based on [Ubuntu 22.04](https://releases.ubuntu.com/22.04) is also provided.
 
-`vagrant box add --provider virtualbox --no-tty generic/debian11`
+`vagrant box add --provider virtualbox --no-tty generic/ubuntu2204`
 
 `vagrant plugin install yaml`
 

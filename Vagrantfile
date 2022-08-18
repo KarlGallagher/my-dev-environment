@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "generic/debian11"
+  config.vm.box = "generic/ubuntu2204"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -129,7 +129,7 @@ Vagrant.configure("2") do |config|
 
   # Install tools
   config.vm.provision :shell, path: "linux_scripts/install_docker.sh", args: "vagrant"
-  config.vm.provision :shell, path: "linux_scripts/install_dotnet.sh"
+  config.vm.provision :shell, path: "linux_scripts/install_lazydocker.sh"
   config.vm.provision :shell, path: "linux_scripts/install_vscode.sh"
   config.vm.provision :shell, path: "linux_scripts/install_minikube.sh"
   config.vm.provision :shell, path: "linux_scripts/install_helm.sh"

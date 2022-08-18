@@ -17,10 +17,35 @@
 # IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-curl -fsSL https://get.docker.com -o get-docker.sh
-sh get-docker.sh
-usermod -aG docker ${1}
-chmod 666 /var/run/docker.sock
+source /etc/os-release
+
+
+curl -fsSL https://download.docker.com/linux/${ID}/gpg | apt-key add -
+
+apt -y install net-tools
+
+echo "deb [arch=amd64] https://download.docker.com/linux/${ID} ${VERSION_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/docker.list
+apt -y update
+
+#Install official Docker release
+apt -y install docker-ce docker-ce-cli containerd.io
+
+#Add user to docker group
+groupadd docker
+usermod -aG docker $1
+su -s ${1}
+
+#Expose docker externally on port 2375
+cp /lib/systemd/system/docker.service /etc/systemd/system/
+sed -i '/ExecStart/s/$/ -H tcp:\/\/0.0.0.0:2375/' /etc/systemd/system/docker.service
+systemctl daemon-reload
+
+#running docker as a service
+service docker start
+
+#have docker startup after reboot
+update-rc.d docker enable
+
 
 #compose
 mkdir -p /usr/local/lib/docker/cli-plugins/

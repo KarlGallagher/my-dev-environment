@@ -37,14 +37,14 @@ then
     omz update
 
     #vagrant boxes
-    vagrant box add --provider virtualbox --no-tty generic/debian11
+    vagrant box add --provider virtualbox --no-tty generic/ubuntu2204
     vagrant box add --provider virtualbox --no-tty cdaf/WindowsServer
 
     cat zshrc >> /${home}/$1/.zshrc
 else
     distro=$(awk -F'=' '/^ID=/ {print tolower($2)}' /etc/os-release)
     echo DISTRO=${distro}
-    if [ ${distro} = "ubuntu" ] || [ ${distro} = "debian" ]
+    if [ ${distro} = "ubuntu" ]
     then
         apt -y update
         apt -y upgrade
@@ -52,6 +52,7 @@ else
         xargs apt -y install < apt_packages.txt
 
         bash linux_scripts/install_docker.sh $1
+        bash linux_scripts/install_lazydocker.sh
         bash linux_scripts/install_helm.sh
         bash linux_scripts/install_minikube.sh
         bash linux_scripts/install_vscode.sh
@@ -63,11 +64,10 @@ else
         cat profile >> /${home}/$1/.profile
 
     else
-        echo "Unsupported distribution, try Ubuntu or Debian"
+        echo "Unsupported distribution, try Ubuntu"
         exit -1
     fi
 fi
 
 echo "Setting vim profile..."
 cp vimrc /${home}/$1/.vimrc
-
