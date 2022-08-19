@@ -34,6 +34,12 @@ apt -y install docker-ce docker-ce-cli containerd.io
 groupadd docker
 usermod -aG docker $1
 
+
+#running docker as a service
+service docker start
+#have docker startup after reboot
+update-rc.d docker enable
+
 #Expose docker externally on port 2375
 if grep -qi WSL /proc/sys/kernel/osrelease; then
     #WSL Ubuntu variant does not use systemd in its init system
@@ -48,10 +54,7 @@ else
     systemctl daemon-reload
 fi
 
-#running docker as a service
 service docker restart
-#have docker startup after reboot
-update-rc.d docker enable
 
 
 #compose
