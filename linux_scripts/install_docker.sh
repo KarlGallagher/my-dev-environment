@@ -43,6 +43,7 @@ update-rc.d docker enable
 #Expose docker externally on port 2375
 if grep -qi WSL /proc/sys/kernel/osrelease; then
     #WSL Ubuntu variant does not use systemd in its init system
+    mkdir -p /etc/docker
     touch /etc/docker/daemon.json
 	echo "{ \"hosts\": [\"unix:///var/run/docker.sock\", \"tcp://0.0.0.0:2375\"] }" | tee -a /etc/docker/daemon.json > /dev/null
 	#fix for daemon not starting on WSL
