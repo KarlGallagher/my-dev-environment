@@ -43,8 +43,11 @@ then
     cat zshrc >> /${home}/$1/.zshrc
 else
     distro=$(awk -F'=' '/^ID=/ {print tolower($2)}' /etc/os-release)
+    version=$(awk -F'=' '/^VERSION_ID=/ {print $2}' /etc/os-release)
     echo DISTRO=${distro}
-    if [ ${distro} = "ubuntu" ]
+    echo VERSION=${version}
+
+    if [ ${distro} = "ubuntu" ] || [ ${distro} = "debian" ]
     then
         apt -y update
         apt -y upgrade
@@ -55,7 +58,16 @@ else
         bash linux_scripts/install_lazydocker.sh
         bash linux_scripts/install_helm.sh
         bash linux_scripts/install_minikube.sh
-        bash linux_scripts/install_vscode.sh
+        if grep -qi WSL /proc/sys/kernel/osrelease; then
+            echo "WSL detected... skipping vscode install"
+        else
+            bash linux_scripts/install_vscode.sh
+        fi
+
+        if [ ${version} != "22.04" ]; then
+            bash linux_scripts/install_dotnet.sh
+        fi
+        
         bash linux_scripts/install_starship.sh
         bash linux_scripts/install_k6.sh
         bash linux_scripts/install_powershell.sh 
@@ -63,7 +75,7 @@ else
         cat profile >> /${home}/$1/.profile
 
     else
-        echo "Unsupported distribution, try Ubuntu"
+        echo "Unsupported distribution, try Ubuntu or Debian"
         exit -1
     fi
 fi

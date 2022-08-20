@@ -130,7 +130,6 @@ Vagrant.configure("2") do |config|
   # Install tools
   config.vm.provision :shell, path: "linux_scripts/install_docker.sh", args: "vagrant"
   config.vm.provision :shell, path: "linux_scripts/install_lazydocker.sh"
-  config.vm.provision :shell, path: "linux_scripts/install_vscode.sh"
   config.vm.provision :shell, path: "linux_scripts/install_minikube.sh"
   config.vm.provision :shell, path: "linux_scripts/install_helm.sh"
   config.vm.provision :shell, path: "linux_scripts/install_starship.sh"
