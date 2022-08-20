@@ -17,4 +17,6 @@
 # IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
- curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
+echo "Installing lazydocker..."
+ curl -LO https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh
+ sh install_update_linux.sh

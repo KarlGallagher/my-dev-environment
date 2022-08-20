@@ -1,1 +1,1 @@
-python3 python3-pip python3-venv vim vim-gtk htop net-tools neofetch fortune cowsay lsof tree virtualenv thefuck meld gnome-keyring build-essential libssl-dev libffi-dev dnsutils traceroute parallel zip iputils-ping xclip uuid fonts-firacode pv pigz dotnet6
+python3 python3-pip python3-venv vim vim-gtk htop net-tools neofetch fortune cowsay lsof tree virtualenv thefuck meld gnome-keyring build-essential libssl-dev libffi-dev dnsutils traceroute parallel zip iputils-ping xclip uuid fonts-firacode pv pigz dotnet6 bashtop glances
