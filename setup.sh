@@ -64,10 +64,10 @@ else
             bash linux_scripts/install_vscode.sh
         fi
 
-        if [ ${version} != "22.04" ]; then
+        if [ "${version}" != "\"22.04\"" ]; then
             bash linux_scripts/install_dotnet.sh
         fi
-        
+
         bash linux_scripts/install_starship.sh
         bash linux_scripts/install_k6.sh
         bash linux_scripts/install_powershell.sh 
