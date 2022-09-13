@@ -18,5 +18,5 @@
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 echo "Installing lazydocker..."
- curl -LO https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh
- sh install_update_linux.sh
+curl -LO https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh
+bash install_update_linux.sh
